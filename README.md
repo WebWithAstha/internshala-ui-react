@@ -31,9 +31,10 @@ The Internshala UI Clone aims to replicate the look and feel of the Internshala 
 1. *Clone the repository:*
 
    git clone https://github.com/WebWithAstha/internshala-ui-react.git
+   
    cd internshala-ui-react
    
-2. **Install Dependencies:**
+3. **Install Dependencies:**
 
    npm install
 
