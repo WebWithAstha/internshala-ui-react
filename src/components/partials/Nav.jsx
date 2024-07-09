@@ -3,14 +3,14 @@ import logo from "../../assets/internshalaLogo.png";
 
 const Nav = () => {
     return (
-        <div className='flex px-36 items-center justify-between text-zinc-800 shadow-md'>
+        <div className='flex px-40 sticky top-0 z-[99] bg-white items-center justify-between text-zinc-800 shadow-md'>
             <div className="lft-nav flex items-center gap-2">
                 <div className="logo mr-4 -mt-2">
                     <img className='h-12' src={logo} alt="" />
                 </div>
-                <h4 className='px-4 py-10 font-medium text-lg group cursor-pointer hover:bg-sky-100'>Internships <i class="fa-solid fa-caret-down group-hover:rotate-180 duration-300 ml-2 text-sm"></i></h4>
-                <h4 className='px-4 py-10 font-medium text-lg group cursor-pointer hover:bg-sky-100'>Jobs <i class="fa-solid fa-caret-down group-hover:rotate-180 duration-300 ml-2 text-sm"></i></h4>
-                <h4 className='px-4 py-10 font-medium text-lg group cursor-pointer hover:bg-sky-100'>Courses <i class="fa-solid fa-caret-down group-hover:rotate-180 duration-300 ml-2 text-sm"></i></h4>
+                <h4 className='px-4 py-6 font-medium text-lg group cursor-pointer hover:bg-sky-100'>Internships <i class="fa-solid fa-caret-down group-hover:rotate-180 duration-300 ml-2 text-sm"></i></h4>
+                <h4 className='px-4 py-6 font-medium text-lg group cursor-pointer hover:bg-sky-100'>Jobs <i class="fa-solid fa-caret-down group-hover:rotate-180 duration-300 ml-2 text-sm"></i></h4>
+                <h4 className='px-4 py-6 font-medium text-lg group cursor-pointer hover:bg-sky-100'>Courses <i class="fa-solid fa-caret-down group-hover:rotate-180 duration-300 ml-2 text-sm"></i></h4>
             </div>
             <div className="rgt-nav flex items-center gap-4">
             <h4 className='mr-4 cursor-pointer'><i class="fa-solid fa-magnifying-glass text-xl mr-2"></i> <span className='font-medium'>Search</span></h4>
