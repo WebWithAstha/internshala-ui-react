@@ -4,7 +4,7 @@ const LogDetails = ({btn}) => {
     return (
         <>
             <label htmlFor="password" className='mt-4 inline-block text-lg'>Password</label>
-            <input type="password" className='w-full outline-sky-500 rounded border border-zinc-300 px-2 py-2 mt-1' placeholder='john@example.com' />
+            <input type="password" className='w-full outline-sky-500 rounded border border-zinc-300 px-2 py-2 mt-1' placeholder='Enter your password' />
             <div className="flex w-full items-center gap-4">
                 <div className="w-1/2">
                     <label htmlFor="fName" className='mt-4 inline-block text-lg'>First Name</label>
@@ -18,7 +18,7 @@ const LogDetails = ({btn}) => {
             <label htmlFor="number" className='mt-4 inline-block text-lg'>Mobile Number</label>
             <div className="flex w-full items-center gap-4">
                 <div className="w-[4vw]">
-                    <input type="text" className='w-full outline-sky-500 text-center rounded border border-zinc-300 px-2 py-2 mt-1' value={"+91"} placeholder='+91' />
+                    <input type="text" className='w-full outline-sky-500 text-center rounded border border-zinc-300 px-2 py-2 mt-1' defaultValue={"+91"} placeholder='+91' />
                 </div>
                 <div className="w-full">
                     <input type="text" className='w-full outline-sky-500 rounded border border-zinc-300 px-2 py-2 mt-1' placeholder='Enter Mobile Number' />

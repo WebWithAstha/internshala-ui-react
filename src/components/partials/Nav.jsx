@@ -11,12 +11,12 @@ const Nav = () => {
                     <img className='h-12' src={logo} alt="" />
                 </div>
                 </Link>
-                <h4 className='px-4 py-6 font-medium text-lg group cursor-pointer hover:bg-sky-100'>Internships <i class="fa-solid fa-caret-down group-hover:rotate-180 duration-300 ml-2 text-sm"></i></h4>
-                <h4 className='px-4 py-6 font-medium text-lg group cursor-pointer hover:bg-sky-100'>Jobs <i class="fa-solid fa-caret-down group-hover:rotate-180 duration-300 ml-2 text-sm"></i></h4>
-                <h4 className='px-4 py-6 font-medium text-lg group cursor-pointer hover:bg-sky-100'>Courses <i class="fa-solid fa-caret-down group-hover:rotate-180 duration-300 ml-2 text-sm"></i></h4>
+                <h4 className='px-4 py-6 font-medium text-lg group cursor-pointer hover:bg-sky-100'>Internships <i className="fa-solid fa-caret-down group-hover:rotate-180 duration-300 ml-2 text-sm"></i></h4>
+                <h4 className='px-4 py-6 font-medium text-lg group cursor-pointer hover:bg-sky-100'>Jobs <i className="fa-solid fa-caret-down group-hover:rotate-180 duration-300 ml-2 text-sm"></i></h4>
+                <h4 className='px-4 py-6 font-medium text-lg group cursor-pointer hover:bg-sky-100'>Courses <i className="fa-solid fa-caret-down group-hover:rotate-180 duration-300 ml-2 text-sm"></i></h4>
             </div>
             <div className="rgt-nav flex items-center gap-4">
-            <h4 className='mr-4 cursor-pointer'><i class="fa-solid fa-magnifying-glass text-xl mr-2"></i> <span className='font-medium'>Search</span></h4>
+            <h4 className='mr-4 cursor-pointer'><i className="fa-solid fa-magnifying-glass text-xl mr-2"></i> <span className='font-medium'>Search</span></h4>
             <Link to="/login">
             <button className='border-2 border-sky-400 hover:bg-sky-100 hover:border-transparent duration-300 px-6 py-1.5 rounded text-sky-400 font-bold'>Login</button>
             </Link>

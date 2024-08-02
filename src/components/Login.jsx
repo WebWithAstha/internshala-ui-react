@@ -9,7 +9,7 @@ const Login = () => {
 
         <form action="" className='max-w-[28rem] bg-white px-8 py-8'>
         
-        <i onClick={e=>navigate(-1)} class="fa-solid fa-xmark relative top-0 left-[93%] text-xl mb-2"></i>
+        <i onClick={e=>navigate(-1)} className="fa-solid fa-xmark relative top-0 left-[93%] text-xl mb-2"></i>
         <div className="flex w-full gap-2">
             <h1 className='w-1/2 text-center cursor-pointer border-b-2 border-sky-500 py-3 text-sky-600 font-semibold text-lg'> Student</h1>
             <h1 className='w-1/2 text-center cursor-pointer py-3 font-semibold text-lg'> Employer / T&P</h1>
