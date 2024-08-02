@@ -1,8 +1,28 @@
-import React from 'react'
+import {React,useEffect} from 'react'
 import Nav from '../partials/Nav'
 import LogDetails from '../partials/LogDetails'
+import axios from '../../utils/axios.jsx'
 
 const SignUp = () => {
+
+  const studentSignUp = async () => {
+    try {
+      const data = await axios.get('/student/signup')
+      console.log(data)
+      
+    } catch (error) {
+      console.log(error)
+      
+    }
+
+
+  }
+  useEffect(() => {
+    studentSignUp()
+
+  }, [])
+  
+
   return (
     <div>
         <Nav/>
