@@ -7,12 +7,18 @@ const SignUp = () => {
 
   const studentSignUp = async () => {
     try {
-      const data = await axios.get('/student/signup')
-      console.log(data)
-      
+      const data = await axios.get('/student',{
+        password:"123456",
+        email:"lodhiastha85@gmail.com",
+        gender:"Female",
+        city:"bhopal",
+        contact:"1234567890",
+        firstname:"John",
+        lastname:"Smith"
+      })
+      console.log(data.data)
     } catch (error) {
-      console.log(error)
-      
+      console.log(error.response.data.message)
     }
 
 
