@@ -1,5 +1,5 @@
 import React from 'react'
-import Nav from '../partials/Nav'
+import Nav from '../partials/navbar/Nav.jsx'
 import LogDetails from '../partials/LogDetails'
 import StatsSection from './StatsSection'
 
