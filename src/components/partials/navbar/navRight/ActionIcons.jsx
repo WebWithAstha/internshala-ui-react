@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
     
@@ -50,13 +51,14 @@ const ShowMore = () => {
 }
 
 
-const ProfileOpts = () => {
+const ProfileOpts = ({name,email}) => {
+
 
     return (
         <div className="absolute w-64 shadow-xl hidden group-hover/profile:opacity-100 group-hover/profile:block min-h-40 bg-white top-full right-0 ">
             <div className="px-5 py-4">
-                <h1 className='leading-none'>Astha</h1>
-                <p className='text-sm font-normal'>abc@gmail.com</p>
+                <h1 className='leading-none'>{name}</h1>
+                <p className='text-sm font-normal'>{email}</p>
             </div>
             <div className="flex justify-between border border-l-0 border-r-0 px-[1.6vw] py-4 text-sm">
                 <span><i className="fa-solid fa-star text-yellow-300"></i> 4</span>
@@ -79,16 +81,16 @@ const ProfileOpts = () => {
     )
 }
 
-const ActionIcons = ({ letter }) => {
+const ActionIcons = ({name,email }) => {
     return (
         <>
             <div className="flex items-center gap-[2vw]">
                 <i className="text-xl opacity-80 fa-regular fa-bell"></i>
                 <i className="text-lg opacity-80 fa-regular fa-message"></i>
                 <div className='px-4 relative py-6 flex items-center font-medium text-md group/profile cursor-pointer hover:bg-sky-100'>
-                    <div className="w-4 h-4 border rounded-full flex items-center justify-center uppercase  cursor-pointer group-hover/profile:border-sky-500 group-hover/profile:text-sky-500 border-zinc-500/[.6] p-4 text-sm">A</div>
+                    <div className="w-4 h-4 border rounded-full flex items-center justify-center uppercase  cursor-pointer group-hover/profile:border-sky-500 group-hover/profile:text-sky-500 border-zinc-500/[.6] p-4 text-sm">{name.slice(0,1)}</div>
                     <i className="fa-solid fa-caret-down group-hover/profile:rotate-180 group-hover/profile:text-sky-500 duration-150 ml-2 text-sm"></i>
-                    <ProfileOpts />
+                    <ProfileOpts email={email} name={name} />
                 </div>
             </div>
 
