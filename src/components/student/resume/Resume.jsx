@@ -54,12 +54,16 @@ const Resume = () => {
 
             <div className="flex justify-between items-center pt-[2vw] mb-4">
               <div>
-                <h2 className="text-3xl font-semibold mb-2">Astha Lodhi</h2>
+                <div className="flex items-center">
+                <h2 className="text-3xl font-semibold mb-2">{info && info.firstname + ' ' +info.lastname}</h2>
+            <i onClick={e => navigate('/student/resume/profile')} className="fa-solid fa-pen px-2 rounded py-1 text-black/[.6] cursor-pointer"></i>
+
+                </div>
                 <div className=" text-zinc-600 text-[14px]">
 
-                  <p className='mb-.5'>lodhiastash85@gmail.com</p>
-                  <p className='mb-.5'>+91 7489089294</p>
-                  <p className='mb-.5'>Bhopal</p>
+                  <p className='mb-.5'>{info && info.email}</p>
+                  <p className='mb-.5'>+91 {info && info.contact}</p>
+                  <p className='mb-.5'>{info && info.city}</p>
                 </div>
               </div>
               <button className="text-sky-500"><i className="fa-solid fa-download"></i> <span className='text-sm font-semibold tracking-wider ml-1'>Download</span></button>
