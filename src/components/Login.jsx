@@ -15,7 +15,7 @@ const Login = () => {
         email,
         password,
       });
-      console.log(data)
+      // console.log(data)
       navigate('/student/dashboard',{state: {id:data.id} })
     } catch (error) {
       console.error(error.response.data.message);

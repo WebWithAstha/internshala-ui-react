@@ -25,7 +25,7 @@ const SignUp = () => {
         gender: "Female",
         city: "bhopal",
       })
-      console.log(data)
+      // console.log(data)
       navigate('/student/dashboard',{state:{id:data.id}})
     } catch (error) {
       alert(error.response.data.message)
