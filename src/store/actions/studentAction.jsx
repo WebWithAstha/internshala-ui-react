@@ -9,8 +9,9 @@ export const asyncLoad = (navigate) => (async (dispatch, getState) => {
         dispatch(load(data))
 
     } catch (error) {
-        if(error.response.data.message == 'jwt expired'){
+        if(error.response.data.message == 'jwt expired' || 'Please login to proceed further.'){
             navigate('/')
+            alert('Please Login')
         }
 
         console.log(error.response.data.message)
