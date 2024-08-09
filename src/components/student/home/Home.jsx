@@ -14,7 +14,6 @@ const Home = () => {
   useEffect(() => {
     dispatch(asyncLoad(navigate))
   }, [])
-console.log(info)
 
 
   return (

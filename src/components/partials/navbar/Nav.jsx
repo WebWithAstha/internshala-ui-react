@@ -7,7 +7,7 @@ import ActionIcons from './navRight/ActionIcons';
 
 const Nav = ({optionsALeft,authBtns,keepactions,optionsAtRight, name,email,img}) => {
     return (
-        <div className='flex px-[10vw] sticky top-0 z-[99] bg-white items-center justify-between text-zinc-800 shadow-md'>
+        <div className='flex w-full px-[10vw] sticky top-0 z-[99] bg-white items-center justify-between text-zinc-800 shadow-md'>
             <div className="lft-nav flex shrink-0 items-center gap-2">
                 <NavLogo />
                 {optionsALeft && <NavLeftOptions />}

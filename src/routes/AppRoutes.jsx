@@ -18,6 +18,7 @@ import AccompDetailsForm from '../components/student/resume/detailForms/AccompDe
 import SkillDetailsForm from '../components/student/resume/detailForms/SkillDetailsForm'
 import WorkDetailsForm from '../components/student/resume/detailForms/WorkDetailsForm'
 import PersonalDetailsForm from '../components/student/resume/detailForms/ProfileDetailsForm'
+import ChangePasswordForm from '../components/partials/ChangePasswordPage'
 
 
 const AppRoutes = () => {
@@ -51,6 +52,7 @@ const AppRoutes = () => {
           <Route path="editwork" element={<WorkDetailsForm edit={true} />} />
           <Route path='profile' element={< PersonalDetailsForm />} />
         </Route>
+        <Route path='/login/update-password' element={<ChangePasswordForm/>} />
       </Routes>
     </>
   )

@@ -20,7 +20,9 @@ const ManageAccount = () => {
                 <i className="fa-solid fa-caret-down group-hover/mAcc:rotate-180 group-hover/mAcc:text-sky-500 duration-150 ml-2 text-sm"></i>
             </div>
             <div ref={manageAcc} className="relative hidden z-[9] pt-[.5vw] w-full bg-white right-0 top-full">
+                <Link to="/login/update-password">
                 <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-3 py-2'>Change Password</h4>
+                </Link>
                 <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-3 py-2'>Change Email Address</h4>
                 <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-3 py-2'>Delete My Account</h4>
             </div>
@@ -92,7 +94,6 @@ const ProfileOpts = ({name,email}) => {
 }
 
 const ActionIcons = ({name,email,img }) => {
-    console.log(img)
     return (
         <>
             <div className="flex items-center gap-[2vw]">
