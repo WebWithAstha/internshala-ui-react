@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from '../../../../utils/axios'
 
     
 const ManageAccount = () => {
@@ -13,16 +14,15 @@ const ManageAccount = () => {
     }
 
     return (
-        <div className='w-full relative z-[0] font-medium text-[15px] group/mAcc duration-150  px-3 py-2'>
+        <div className='w-full relative z-[0] font-medium text-[15px] group/mAcc duration-150  px-3 pt-1'>
             <div onClick={e => handleShowMore(e)} className="w-full flex justify-between items-center">
                 <span className=' group-hover/mAcc:text-sky-500'>Manage Account</span>
                 <i className="fa-solid fa-caret-down group-hover/mAcc:rotate-180 group-hover/mAcc:text-sky-500 duration-150 ml-2 text-sm"></i>
             </div>
-            <div ref={manageAcc} className="relative hidden z-[9] py-[.5vw] w-full bg-white right-0 top-full">
+            <div ref={manageAcc} className="relative hidden z-[9] pt-[.5vw] w-full bg-white right-0 top-full">
                 <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-3 py-2'>Change Password</h4>
                 <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-3 py-2'>Change Email Address</h4>
                 <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-3 py-2'>Delete My Account</h4>
-                <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-3 py-2'>Logout</h4>
             </div>
         </div>
     )
@@ -30,10 +30,20 @@ const ManageAccount = () => {
 const ShowMore = () => {
 
     const moreBar = useRef(null)
+    const navigate = useNavigate()
 
     const handleShowMore = (e) => {
         moreBar.current.classList.toggle('hidden')
         moreBar.current.classList.toggle('block')
+    }
+
+    const handleLogOut = async()=>{
+        try {
+            await axios.post('/student/signout')
+            navigate('/')
+        } catch (error) {
+             console.log(error)           
+        }
     }
 
     return (
@@ -44,7 +54,7 @@ const ShowMore = () => {
             </div>
             <div ref={moreBar} className="relative hidden z-[9] py-[.5vw] w-full bg-white right-0 top-full">
                 <ManageAccount/>
-                <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-5 py-2'>Logout</h4>
+                <h4 onClick={handleLogOut} className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-3 pt-2'>Logout</h4>
             </div>
         </div>
     )
@@ -81,14 +91,22 @@ const ProfileOpts = ({name,email}) => {
     )
 }
 
-const ActionIcons = ({name,email }) => {
+const ActionIcons = ({name,email,img }) => {
+    console.log(img)
     return (
         <>
             <div className="flex items-center gap-[2vw]">
                 <i className="text-xl opacity-80 fa-regular fa-bell"></i>
                 <i className="text-lg opacity-80 fa-regular fa-message"></i>
                 <div className='px-4 relative py-6 flex items-center font-medium text-md group/profile cursor-pointer hover:bg-sky-100'>
-                    <div className="w-4 h-4 border rounded-full flex items-center justify-center uppercase  cursor-pointer group-hover/profile:border-sky-500 group-hover/profile:text-sky-500 border-zinc-500/[.6] p-4 text-sm">{name.slice(0,1)}</div>
+                    <div className="w-10 h-10 border rounded-full flex items-center justify-center uppercase  cursor-pointer group-hover/profile:border-sky-500 group-hover/profile:text-sky-500 border-zinc-500/[.6] text-sm">
+                    {
+                        img ? 
+                        <img className='w-full h-full object-cover rounded-full' src={img} alt="Profile Pic" />
+                        : name.slice(0,1)
+                    }
+                    
+                    </div>
                     <i className="fa-solid fa-caret-down group-hover/profile:rotate-180 group-hover/profile:text-sky-500 duration-150 ml-2 text-sm"></i>
                     <ProfileOpts email={email} name={name} />
                 </div>

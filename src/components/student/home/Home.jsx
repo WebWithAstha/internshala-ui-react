@@ -14,13 +14,13 @@ const Home = () => {
   useEffect(() => {
     dispatch(asyncLoad(navigate))
   }, [])
-
+console.log(info)
 
 
   return (
     info &&
     <div className='w-full'>
-      <Nav keepactions={true} optionsAtRight={true} name={info.firstname} email = {info.email} />
+      <Nav keepactions={true} optionsAtRight={true} name={info.firstname} email = {info.email} img={info.avatar.url} />
       <Layout name={info.firstname} />
       <Recommended />
     </div>
