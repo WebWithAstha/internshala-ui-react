@@ -10,6 +10,8 @@ const Home = () => {
   const navigate= useNavigate()
   const dispatch = useDispatch()
   const { info } = useSelector(store => store.studentReducer)
+const navOpts = ['Internships','Jobs','Courses']
+
 
   useEffect(() => {
     dispatch(asyncLoad(navigate))
@@ -19,7 +21,7 @@ const Home = () => {
   return (
     info &&
     <div className='w-full'>
-      <Nav keepactions={true} optionsAtRight={true} name={info.firstname} email = {info.email} img={info.avatar.url} />
+      <Nav keepactions={true} optionsAtRight={true} opts={navOpts} name={info.firstname} email = {info.email} img={info.avatar.url} />
       <Layout name={info.firstname} />
       <Recommended />
     </div>

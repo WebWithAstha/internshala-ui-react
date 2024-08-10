@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from '../../../../utils/axios'
 
     
-const ManageAccount = () => {
+const ManageAccount = ({userType}) => {
 
     const manageAcc = useRef(null)
 
@@ -14,16 +14,21 @@ const ManageAccount = () => {
     }
 
     return (
-        <div className='w-full relative z-[0] font-medium text-[15px] group/mAcc duration-150  px-3 pt-1'>
+        <div className='w-full relative z-[0] font-medium text-[15px] group/mAcc duration-150  px-5 pt-1'>
             <div onClick={e => handleShowMore(e)} className="w-full flex justify-between items-center">
                 <span className=' group-hover/mAcc:text-sky-500'>Manage Account</span>
                 <i className="fa-solid fa-caret-down group-hover/mAcc:rotate-180 group-hover/mAcc:text-sky-500 duration-150 ml-2 text-sm"></i>
             </div>
             <div ref={manageAcc} className="relative hidden z-[9] pt-[.5vw] w-full bg-white right-0 top-full">
-                <Link to="/login/update-password">
+                {userType==='employee' &&
+                <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-3 py-2'>Edit Profile</h4>
+                }
+                <Link to="/login/update-password" state={{userType}}>
                 <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-3 py-2'>Change Password</h4>
                 </Link>
+                {userType==='student' &&
                 <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-3 py-2'>Change Email Address</h4>
+                }
                 <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-3 py-2'>Delete My Account</h4>
             </div>
         </div>
@@ -55,20 +60,17 @@ const ShowMore = () => {
                 <i className="fa-solid fa-caret-down group-hover/more:rotate-180 group-hover/more:text-sky-500 duration-150 ml-2 text-sm"></i>
             </div>
             <div ref={moreBar} className="relative hidden z-[9] py-[.5vw] w-full bg-white right-0 top-full">
-                <ManageAccount/>
+                <ManageAccount userType={"student"}/>
                 <h4 onClick={handleLogOut} className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-3 pt-2'>Logout</h4>
             </div>
         </div>
     )
 }
 
-
-const ProfileOpts = ({name,email}) => {
-
-
-    return (
-        <div className="absolute w-64 shadow-xl hidden group-hover/profile:opacity-100 group-hover/profile:block min-h-40 bg-white top-full right-0 ">
-            <div className="px-5 py-4">
+const ProfileOptsTop =({name,email})=>{
+    return(
+        <>
+        <div className="px-5 py-4">
                 <h1 className='leading-none'>{name}</h1>
                 <p className='text-sm font-normal'>{email}</p>
             </div>
@@ -78,7 +80,13 @@ const ProfileOpts = ({name,email}) => {
 
 
             </div>
-            <div className="pb-1">
+        </>
+    )
+}
+const ProfileOptsBtmStudent =()=>{
+    return(
+        <>
+        <div className="pb-1">
                 <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-5 py-2'>Home</h4>
                 <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-5 py-2'>My Applications</h4>
                 <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-5 py-2'>My Bookmarks</h4>
@@ -89,6 +97,40 @@ const ProfileOpts = ({name,email}) => {
                 <ShowMore />
 
             </div>
+        </>
+    )
+}
+const ProfileOptsBtmEmp =()=>{
+    const navigate = useNavigate()
+    const handleLogOut = async()=>{
+        try {
+            await axios.post('/employee/signout')
+            navigate('/')
+        } catch (error) {
+             console.log(error)           
+        }
+    }
+    return(
+        <>
+        <div className="pb-1">
+                <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-5 py-2'>Help Center</h4>
+                <h4 className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-5 py-2'>Biling</h4>
+                <ManageAccount userType={"employee"} />
+                <h4 onClick={handleLogOut} className='w-full hover:text-sky-500 font-medium text-[15px] duration-150 opacity-95 px-5 py-2'>Logout</h4>
+            </div>
+        </>
+    )
+}
+
+const ProfileOpts = ({name,email}) => {
+
+
+    return (
+        <div className="absolute w-64 shadow-xl hidden group-hover/profile:opacity-100 group-hover/profile:block min-h-40 bg-white top-full right-0 ">
+            <ProfileOptsTop name={name} email={email}/>
+            <ProfileOptsBtmEmp/>
+            {/* <ProfileOptsBtmStudent/> */}
+            
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const LogDetails = ({btn,email,setemail,password,setpassword,firstname,setfirstname,lastname,setlastname,contact,setcontact}) => {
+const LogDetails = ({btn,email,setemail,password,setpassword,firstname,setfirstname,lastname,setlastname,contact,setcontact,usertype}) => {
     return (
         <>
         <label htmlFor="email" className='mt-4 inline-block text-lg'>Email</label>
@@ -28,7 +29,7 @@ const LogDetails = ({btn,email,setemail,password,setpassword,firstname,setfirstn
             </div>
             <h4 className='text-sm mt-6'>By clicking on <span className='text-sky-500 font-medium'>{btn}</span>, you agree to our T&C.</h4>
             <button className='px-6 w-full bg-sky-500 hover:bg-sky-400 duration-300 font-bold text-white py-[.6rem] rounded mt-2'>{btn}</button>
-            <h4 className='mt-4 text-center font-medium text-zinc-500'>Already registered? <span className='text-sky-600'>Login</span> </h4>
+            <h4 className='mt-4 text-center font-medium text-zinc-500'>Already registered? <Link to='/login' state= {{type:usertype}}><span className='text-sky-600 cursor-pointer'>Login</span></Link> </h4>
 
 
         </>
