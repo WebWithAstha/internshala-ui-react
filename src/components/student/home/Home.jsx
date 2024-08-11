@@ -10,7 +10,8 @@ const Home = () => {
   const navigate= useNavigate()
   const dispatch = useDispatch()
   const { info } = useSelector(store => store.studentReducer)
-const navOpts = ['Internships','Jobs','Courses']
+const navOpts = [{'Internships':"/student/internships"}, {Jobs:'/student/jobs'}, {'Courses':'/student/cources'}]
+
 
 
   useEffect(() => {

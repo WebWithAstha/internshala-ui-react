@@ -21,6 +21,7 @@ import PersonalDetailsForm from '../components/student/resume/detailForms/Profil
 import ChangePasswordForm from '../components/partials/ChangePasswordPage'
 import ExtraDetailsForm from '../components/employee/ExtraDetailsForm'
 import Dashboard from '../components/employee/Dashboard'
+import UploadForm from '../components/employee/UploadForm'
 
 
 const AppRoutes = () => {
@@ -57,6 +58,7 @@ const AppRoutes = () => {
         <Route path='/login/update-password' element={<ChangePasswordForm/>} />
         <Route path='/employee/details' element={<ExtraDetailsForm/>}/>
         <Route path='/employee/dashboard' element={<Dashboard/>}/>
+        <Route path='/employee/post' element={<UploadForm/>}/>
       </Routes>
     </>
   )

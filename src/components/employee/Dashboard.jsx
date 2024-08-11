@@ -12,7 +12,7 @@ const Dashboard = () => {
         dispatch(asyncLoad(navigate))
     }, [])
 
-    const navOpts = ['Plans and Pricing', 'Dashboard', 'Post Internship/Job']
+    const navOpts = [{'Plans and Pricing':"/employee/plans"}, {Dashboard:'/employee/dashboard'}, {'Post Internship/Job':'/employee/post'}]
 
     // state variables
     const [jobType, setjobType] = useState('internship')
@@ -81,56 +81,30 @@ const Dashboard = () => {
                                 </tr>
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200">
-                                <tr>
-                                    <td className="px-6 py-4 whitespace-nowrap">Graphic Design</td>
+                                {
+                                    info && info.internships.map((intern,i)=>(
+
+                                <tr key={i}>
+                                    <td className="px-6 py-4 whitespace-nowrap">{intern.profile}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-gray-500">Closed</td>
                                     <td className="px-6 py-4 whitespace-nowrap">314</td>
                                     <td className="px-6 py-4 whitespace-nowrap">
+                                        {
+                                            intern.appliers.length>0?
                                         <button className="text-sky-600 hover:text-sky-800">
                                             View applications
                                         </button>
+                                            :
+                                            <h2 className='opacity-70'>N/A</h2>
+                                        }
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
                                         <button className="text-gray-400 hover:text-gray-600">...</button>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td className="px-6 py-4 whitespace-nowrap">Graphic Design</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-gray-500">Closed</td>
-                                    <td className="px-6 py-4 whitespace-nowrap">381</td>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <button className="text-sky-600 hover:text-sky-800">
-                                            View applications
-                                        </button>
-                                    </td>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <button className="text-gray-400 hover:text-gray-600">...</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        Illustration Design And Graphic Design
-                                    </td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-gray-500">Declined</td>
-                                    <td className="px-6 py-4 whitespace-nowrap">None</td>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <button className="text-gray-400">N/A</button>
-                                    </td>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <button className="text-gray-400 hover:text-gray-600">...</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="px-6 py-4 whitespace-nowrap">Digital Marketing</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-gray-500">Declined</td>
-                                    <td className="px-6 py-4 whitespace-nowrap">None</td>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <button className="text-gray-400">N/A</button>
-                                    </td>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <button className="text-gray-400 hover:text-gray-600">...</button>
-                                    </td>
-                                </tr>
+                                    ))
+                                }
+                              
                             </tbody>
                         </table>
                     </div>
