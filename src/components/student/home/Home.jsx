@@ -14,6 +14,7 @@ const navOpts = [{'Internships':"/student/internships"}, {Jobs:'/student/jobs'},
 
 
 
+
   useEffect(() => {
     dispatch(asyncLoad(navigate))
   }, [])
